@@ -4,7 +4,7 @@ from datetime import date
 
 user = APIRouter()
 
-@user.get("/user")
+@user.get("/user/register/{user_name}")
 async def get_info(user_name:str,
                    user_birth:Union[date,None] = None,
                    user_school:Union[str,None] = None):
