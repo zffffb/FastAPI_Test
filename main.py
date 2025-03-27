@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 
-from apps.app_user import app_user
+from apps.user import user
 
 app = FastAPI()
 
