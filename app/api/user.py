@@ -3,7 +3,7 @@ from typing import Union
 from datetime import date
 from pydantic import BaseModel , Field
 
-app = APIRouter()
+app_user = APIRouter()
 
 class User(BaseModel):
     name : str
@@ -14,14 +14,14 @@ class User(BaseModel):
     password : str 
 
 
-@app.post("/user/regin")
+@app_user.post("/user/regin")
 async def regin(user : User):
     return user
 
-@app.post("/user/login")
+@app_user.post("/user/login")
 async def login(name : str = Form(),password : str = Form(min_length = 8,max_length = 16)):
     return True
 
-@app.get("/user/home")
+@app_user.get("/user/home")
 async def show_home():
     return 
