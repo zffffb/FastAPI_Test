@@ -1,12 +1,18 @@
 from fastapi import APIRouter
 from typing import Union
 from datetime import date
+from pydantic import BaseModel , Field
 
 user = APIRouter()
 
-@user.get("/user/register/{user_name}")
-async def get_info(user_name:str,
-                   user_birth:Union[date,None] = None,
-                   user_school:Union[str,None] = None):
-    print(user_name,user_birth,user_school)
-    return {"user_name": user_name,"user_birth": user_birth,"user_school": user_school}
+class User(BaseModel):
+    name : str
+    age : int = Field(default = 0 , gt = 0 , lt = 100)
+    school : Union[str , None] =None
+    major : Union[str , None] = None
+    birth : Union[date , None] = None
+
+
+@user.post("/user/regin")
+async def regin(user : User):
+    return user
