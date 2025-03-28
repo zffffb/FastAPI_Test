@@ -7,10 +7,9 @@ from api.index import app_index
 
 app = FastAPI()
 
-templates = Jinja2Templates(directory="templates")
 
-app.include_router(app_user,tags = ["user"])
-app.include_router(app_index,tags = ["index"])
+app.include_router(app_user,prefix = "/user",tags = ["user"])
+app.include_router(app_index,prefix = "/index",tags = ["index"])
 
 if __name__ == '__main__':
     uvicorn.run("main:app", port=8080, reload=True, log_level="debug") 

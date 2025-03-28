@@ -1,12 +1,10 @@
-{% extends "base.html" %}
-
-{% block title %} 首页 {% endblock %}
-
-{% block content %}
-    <h1>欢迎来到个人博客</h1>
-    <ul>
-        {% for post in posts %}
-            <li><a href="/post/{{ post.id }}">{{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <h1>欢迎来到 FastAPI 个人博客！</h1>
+</body>
+</html>

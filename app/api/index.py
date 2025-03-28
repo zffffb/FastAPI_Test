@@ -5,7 +5,7 @@ app_index = APIRouter()
 
 templates = Jinja2Templates(directory="templates")
 
-@app_index.get("/index")
+@app_index.get("/")
 async def index(request : Request):
     return templates.TemplateResponse(
         "index.html",

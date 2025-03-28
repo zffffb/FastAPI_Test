@@ -14,14 +14,14 @@ class User(BaseModel):
     password : str 
 
 
-@app_user.post("/user/regin")
+@app_user.post("/regin")
 async def regin(user : User):
     return user
 
-@app_user.post("/user/login")
+@app_user.post("/login")
 async def login(name : str = Form(),password : str = Form(min_length = 8,max_length = 16)):
     return True
 
-@app_user.get("/user/home")
+@app_user.get("/home")
 async def show_home():
     return 
